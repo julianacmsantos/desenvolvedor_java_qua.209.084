@@ -19,8 +19,8 @@ public class App {
 
         // variaveis
         String nome;
-        Double peso;
-        Double altura;
+        double peso;
+        double altura;
 
         // input
         System.out.println("Informe seu nome:");
@@ -55,8 +55,8 @@ public class App {
     }   
 
 
-    public static Double calcularImc(Double peso, Double altura) {
-        Double imc = peso / (altura * altura);
+    public static double calcularImc(double peso, double altura) {
+        double imc = peso / (altura * altura);
         return imc;
     }
 }
