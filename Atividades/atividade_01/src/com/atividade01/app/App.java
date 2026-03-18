@@ -35,18 +35,19 @@ public class App {
         // processamento
         double imc = calcularImc(peso, altura);
 
+        // exibe o IMC e o diagnóstico
         if (imc < 18.5) {
-            System.out.println(nome + " está abaixo do peso.");
+            System.out.println(nome +", seu IMC é " + imc + " e você está abaixo do peso.");
         } else if (imc >= 18.5 && imc < 25) {
-            System.out.println(nome + " tem o peso ideal.");
+            System.out.println(nome +", seu IMC é " + imc + " e você tem o peso ideal.");
         } else if (imc >= 25 && imc < 30) {
-            System.out.println(nome + " está acima do peso.");
+            System.out.println(nome +", seu IMC é " + imc + " e você está acima do peso.");
         } else if (imc >= 30 && imc < 35) {
-            System.out.println(nome + " está obeso.");
+            System.out.println(nome +", seu IMC é " + imc + " e você está obeso.");
         } else if (imc >= 35 && imc < 40) {
-            System.out.println(nome + " tem obesidade nível 2.");
+            System.out.println(nome +", seu IMC é " + imc + " e você tem obesidade nível 2.");
         } else {
-            System.out.println(nome + " tem obesidade mórbida.");
+            System.out.println(nome +", seu IMC é " + imc + " e você tem obesidade mórbida.");
         }
 
         // fechar o scanner
