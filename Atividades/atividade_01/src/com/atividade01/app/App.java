@@ -61,3 +61,13 @@ public class App {
         return imc;
     }
 }
+
+// alternativa para o cálculo do IMC
+/*     String result;
+result = (imc < 18.5) ? "abaixo do peso" :
+         (imc < 25) ? "peso ideal" :
+         (imc < 30) ? "acima do peso" :
+         (imc < 35) ? "obeso" :
+         (imc < 40) ? "obesidade nível 2" :
+         "obesidade mórbida";
+ */
