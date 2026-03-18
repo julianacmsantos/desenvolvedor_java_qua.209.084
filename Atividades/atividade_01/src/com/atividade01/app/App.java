@@ -33,7 +33,7 @@ public class App {
         altura = sc.nextDouble();
 
         // processamento
-        Double imc = calcularImc(peso, altura);
+        double imc = calcularImc(peso, altura);
 
         if (imc < 18.5) {
             System.out.println(nome + " está abaixo do peso.");
