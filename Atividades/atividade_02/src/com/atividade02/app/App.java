@@ -44,53 +44,54 @@ public class App {
         switch (codFilme) {
             case (1):
                 System.out.println("\nBom filme, "  + nome + "!");
+                ingressoEmitido = 1;
                 break; 
             case (2):
                 if (idade >= 12) {
                     System.out.println("\nBom filme, " + nome + "!");
+                    ingressoEmitido = 1;
                 }
                 else {
                     System.out.println("\nInfelizmente você não pode assistir esse filme, "  + nome + "!");
                     System.out.println("Classificação indicativa: 12 anos");
-                    System.out.println("\nEscolha outro filme:");                    
-                    ingressoEmitido = 1;
+                    System.out.println("\nEscolha outro filme:");
                 }
                 break;
             case (3):
                 if (idade >= 14) {
                     System.out.println("\nBom filme, " + nome + "!");
+                    ingressoEmitido = 1;
                 }
                 else {
                     System.out.println("\nInfelizmente você não pode assistir esse filme, "  + nome + "!");
                     System.out.println("Classificação indicativa: 14 anos");
-                    System.out.println("\nEscolha outro filme:");                    
-                    ingressoEmitido = 1;
+                    System.out.println("\nEscolha outro filme:");                                        
                 }
                 break;
             case (4):
                 if (idade >= 16) {
                     System.out.println("\nBom filme, " + nome + "!");
+                    ingressoEmitido = 1;
                 }
                 else {
                     System.out.println("\nInfelizmente você não pode assistir esse filme, " + nome + "!");
                     System.out.println("Classificação indicativa: 16 anos");
                     System.out.println("\nEscolha outro filme:");                    
-                    ingressoEmitido = 1;
                 }
                 break;
             case (5):
                 if (idade >= 18) {
                     System.out.println("\nBom filme, " + nome + "!");
+                    ingressoEmitido = 1;
                 }
                 else {
                     System.out.println("\nInfelizmente você não pode assistir esse filme, "  + nome + "!");
                     System.out.println("Classificação indicativa: 18 anos");
-                    System.out.println("\nEscolha outro filme:");                    
-                    ingressoEmitido = 1;
+                    System.out.println("\nEscolha outro filme:");
                 }
                 break;
         }
-    } while (ingressoEmitido == 1);
+    } while (ingressoEmitido == 0);
 
     
         sc.close();
