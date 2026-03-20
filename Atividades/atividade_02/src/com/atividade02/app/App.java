@@ -90,6 +90,8 @@ public class App {
                     System.out.println("\nEscolha outro filme:");
                 }
                 break;
+            default:
+                System.out.println("Opção inválida!");
         }
     } while (ingressoEmitido == 0);
 
