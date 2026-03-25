@@ -6,6 +6,6 @@ public class Veiculo {
     public String modelo;
     public String placa;
     public String cor;
-    public int ano;    
+    public String ano;    
 
 }

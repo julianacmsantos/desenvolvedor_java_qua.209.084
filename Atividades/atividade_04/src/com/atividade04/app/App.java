@@ -34,14 +34,14 @@ public class App {
         veiculo.cor = sc.nextLine();
 
         System.out.println("Informe o ano:");
-        veiculo.ano = sc.nextInt();
+        veiculo.ano = sc.nextLine();
 
        // output
        System.out.println("O fabricante do veículo é " + veiculo.fabricante
         + ", o modelo é " + veiculo.modelo
         + ", a placa é " + veiculo.placa
         + ", a cor é " + veiculo.cor
-        + "e o ano é " + veiculo.ano
+        + "e o ano é " + veiculo.ano + "."
        );
         sc.close();
     }
