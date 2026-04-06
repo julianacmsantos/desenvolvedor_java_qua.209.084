@@ -1,19 +1,18 @@
 package com.encapsulamento.models;
 
 final public class Carro extends Veiculo {
-    private String bagageiro;
+    private boolean bagageiro;
 
-    public Carro(String bagageiro, String fabricante, String modelo, String cor, String ano, String placa, String categoria) {
-        super(fabricante, modelo, cor, ano, placa, categoria);
+    public Carro(boolean bagageiro, String fabricante, String modelo, String cor, String ano, String placa) {
+        super(fabricante, modelo, cor, ano, placa);
         this.bagageiro = bagageiro;
     }
-    
 
-    public String getBagageiro() {
+    public boolean getBagageiro() {
         return this.bagageiro;
     }
 
-    public void setBagageiro(String bagageiro) {
+    public void setBagageiro(boolean bagageiro) {
         this.bagageiro = bagageiro;
     }
     

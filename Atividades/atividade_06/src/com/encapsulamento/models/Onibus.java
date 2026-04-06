@@ -1,18 +1,18 @@
 package com.encapsulamento.models;
 
 final public class Onibus extends Veiculo {
-    private String leito;
+    private boolean leito;
 
-    public Onibus(String leito, String fabricante, String modelo, String cor, String ano, String placa, String categoria) {
-        super(fabricante, modelo, cor, ano, placa, categoria);
+    public Onibus(boolean leito, String fabricante, String modelo, String cor, String ano, String placa) {
+        super(fabricante, modelo, cor, ano, placa);
         this.leito = leito;
     }
 
-    public String getLeito() {
+    public boolean getLeito() {
         return this.leito;
     }
 
-    public void setLeito(String leito) {
+    public void setLeito(boolean leito) {
         this.leito = leito;
     }
 

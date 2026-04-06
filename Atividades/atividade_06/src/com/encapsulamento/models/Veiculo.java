@@ -6,16 +6,15 @@ abstract public class Veiculo {
     private String cor;
     private String ano;
     private String placa;
-    private String categoria;
+    
     
 
-    public Veiculo(String fabricante, String modelo, String cor, String ano, String placa, String categoria) {
+    public Veiculo(String fabricante, String modelo, String cor, String ano, String placa) {
         this.fabricante = fabricante;
         this.modelo = modelo;
         this.cor = cor;
         this.ano = ano;
         this.placa = placa;
-        this.categoria = categoria;
     }
 
     public String getFabricante() {
@@ -56,14 +55,6 @@ abstract public class Veiculo {
 
     public void setPlaca(String placa) {
         this.placa = placa;
-    }
-
-    public String getCategoria() {
-        return this.categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
     }
 
 }
