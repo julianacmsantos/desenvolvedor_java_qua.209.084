@@ -9,6 +9,10 @@ final public class Caminhao extends Veiculo {
         this.carroceria = carroceria;
     }
 
+    public boolean isCarroceria() {
+        return this.carroceria;
+    }
+    
     public boolean getCarroceria() {
         return this.carroceria;
     }

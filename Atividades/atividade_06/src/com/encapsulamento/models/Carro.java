@@ -8,6 +8,10 @@ final public class Carro extends Veiculo {
         this.bagageiro = bagageiro;
     }
 
+    public boolean isBagageiro() {
+        return this.bagageiro;
+    }
+
     public boolean getBagageiro() {
         return this.bagageiro;
     }

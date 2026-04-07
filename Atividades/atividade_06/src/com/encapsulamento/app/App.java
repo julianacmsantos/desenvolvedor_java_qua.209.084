@@ -66,7 +66,7 @@ public class App {
 
                 break;
             case "3":
-                Moto moto = new Moto(null, null, null, null, null);
+                Moto moto = new Moto(null, null, null, null, null, null);
                 System.out.println("\nMOTO");
                 System.out.println("\nInforme o fabricante:");
                 moto.setFabricante(sc.nextLine());
@@ -78,8 +78,10 @@ public class App {
                 moto.setAno(sc.nextLine());
                 System.out.println("Informe a placa:");
                 moto.setPlaca(sc.nextLine());
+                System.out.println("Informe as cilindradas:");
+                moto.setCilindradas(sc.nextLine());
 
-                System.out.println("\nDADOS DA MOTO \n Fabricante: " + moto.getFabricante() + "\n Modelo: " + moto.getModelo() + "\n Cor: " + moto.getCor() + "\n Ano: " + moto.getAno() + "\n Placa: " + moto.getPlaca());
+                System.out.println("\nDADOS DA MOTO \n Fabricante: " + moto.getFabricante() + "\n Modelo: " + moto.getModelo() + "\n Cor: " + moto.getCor() + "\n Ano: " + moto.getAno() + "\n Placa: " + moto.getPlaca() + "\n Cilindradas: " + moto.getCilindradas());
 
                 break;
             case "4":

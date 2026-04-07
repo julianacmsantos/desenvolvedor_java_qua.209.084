@@ -8,6 +8,10 @@ final public class Onibus extends Veiculo {
         this.leito = leito;
     }
 
+    public boolean isLeito() {
+        return this.leito;
+    }
+    
     public boolean getLeito() {
         return this.leito;
     }
