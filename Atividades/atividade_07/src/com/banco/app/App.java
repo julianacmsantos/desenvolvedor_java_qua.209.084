@@ -25,9 +25,10 @@ public class App {
         System.out.println("1 - Pessoa Física");
         System.out.println("2 - Pessoa Jurídica");
 
-        String opcao = sc.nextLine();
+        String opcao1 = sc.nextLine();
+        String opcao2;
 
-        switch (opcao) {
+        switch (opcao1) {
             case "1":
                 PessoaFisica pessoaFisica = new PessoaFisica(null, null, null);
                 System.out.println("Informe o nome:");
@@ -36,6 +37,17 @@ public class App {
                 pessoaFisica.setCpf(sc.nextLine());
                 System.out.println("Informe o e-mail:");
                 pessoaFisica.setEmail(sc.nextLine());
+                
+                ContaPessoaFisica contaPessoaFisica = new ContaPessoaFisica(null, null, null, 0);
+                System.out.println("\nInforme o número da sua conta:");
+                contaPessoaFisica.setConta(sc.nextLine());
+                System.out.println("Informe a agência da sua conta:");
+                contaPessoaFisica.setAgencia(sc.nextLine());
+                System.out.println("Informe o saldo inicial da sua conta:");
+                contaPessoaFisica.setSaldo(sc.nextDouble());
+
+                System.out.println("\nAgência do cliente: " + contaPessoaFisica.getAgencia());
+                System.out.println("Conta do cliente: " + contaPessoaFisica.getConta());
                 break;
             case "2":
                 PessoaJuridica pessoaJuridica = new PessoaJuridica(null, null, null, null);
@@ -47,23 +59,51 @@ public class App {
                 pessoaJuridica.setCnpj(sc.nextLine());
                 System.out.println("Informe o e-mail da empresa:");
                 pessoaJuridica.setEmail(sc.nextLine());
+
+                ContaPessoaJuridica contaPessoaJuridica = new ContaPessoaJuridica(null, 0.01, null, null, 0);
+                System.out.println("\nInforme a agência da empresa:");
+                contaPessoaJuridica.setAgencia(sc.nextLine());
+                System.out.println("Informe o número da conta da empresa:");
+                contaPessoaJuridica.setConta(sc.nextLine());
+                System.out.println("Informe o saldo inicial da conta da empresa:");
+                contaPessoaJuridica.setSaldo(sc.nextDouble());
+
+                System.out.println("\nAgência da empresa: " + contaPessoaJuridica.getAgencia());
+                System.out.println("Conta da empresa: " + contaPessoaJuridica.getConta());
                 break;
             default:
                 System.out.println("Opção inválida");
                 break;
         }
 
-        switch (opcao) {
-            case "1":
-                ContaPessoaFisica contaPessoaFisica = new ContaPessoaFisica(null, null, null)
-                System.out.println("Informe o número da sua conta:");
-                break;
-            case "2":
-                ContaPessoaJuridica contaPessoaJuridica = new ContaPessoaJuridica(null, null, null, null);
-                break;
-            default:
-                break;
-        }
+        do {
+            System.out.println("\nSelecione a opção desejada:");
+            System.out.println("A - Consultar dados da conta");
+            System.out.println("B - Realizar um saque");
+            System.out.println("C - realizar um depósito");
+            System.out.println("D - Sair do programa");
+            opcao2 = sc.nextLine();
+
+            switch (opcao2) {
+                case "A":
+                    System.out.println("\nDADOS DA CONTA");
+                    if (opcao1 == "1") {
+                        //contaPessoaFisica.exibirDados();
+                    }
+                    break;
+                case "B":
+
+                    break;
+                case "C":
+
+                    break;
+                case "D":
+                    System.out.println("\nSaindo do programa...");
+                    break;
+                default:
+                    break;
+            }
+} while (opcao2 != "D");
 
         sc.close();
     }

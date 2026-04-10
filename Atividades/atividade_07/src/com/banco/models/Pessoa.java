@@ -1,8 +1,6 @@
 package com.banco.models;
 
-import com.banco.repository.IPessoa;
-
-abstract public class Pessoa {
+public abstract class Pessoa {
     private String email;
 
     public Pessoa(String email) {
@@ -16,6 +14,4 @@ abstract public class Pessoa {
     public void setEmail(String email) {
         this.email = email;
     }
-
-
 }

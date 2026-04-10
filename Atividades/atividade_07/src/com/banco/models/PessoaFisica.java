@@ -35,4 +35,10 @@ public class PessoaFisica extends Pessoa {
         this.email = email;
     }
 
+    public void exibirDados() {
+        System.out.println("Nome do cliente: " + this.nome);
+        System.out.println("CPF do cliente: " + this.cpf);
+        System.out.println("E-mail do cliente: " + this.email);
+    }
+
 }

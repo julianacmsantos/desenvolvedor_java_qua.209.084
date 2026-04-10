@@ -3,7 +3,6 @@ package com.banco.models;
 public class PessoaJuridica extends Pessoa {
     private String nomeFantasia;
     private String razaoSocial;
-    private String email;
     private String cnpj;
 
     public PessoaJuridica(String nomeFantasia, String razaoSocial, String cnpj, String email) {
@@ -29,14 +28,6 @@ public class PessoaJuridica extends Pessoa {
         this.razaoSocial = razaoSocial;
     }
 
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getCnpj() {
         return this.cnpj;
     }
@@ -45,4 +36,10 @@ public class PessoaJuridica extends Pessoa {
         this.cnpj = cnpj;
     }
 
+    public void exibirDados() {
+        System.out.println("Razão Social da empresa: " + this.razaoSocial);
+        System.out.println("Nome Fantasia da empresa: " + this.nomeFantasia);
+        System.out.println("CNPJ da empresa: " + this.cnpj);
+        System.out.println("E-mail da empresa: " + this.getEmail());
+    }
 }

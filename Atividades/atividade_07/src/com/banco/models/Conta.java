@@ -2,13 +2,15 @@ package com.banco.models;
 
 import com.banco.repository.IConta;
 
-abstract public class Conta {
+public abstract class Conta implements IConta {
     private String agencia;
     private String conta;
+    private double saldo;
 
-    public Conta(String agencia, String conta) {
+    public Conta(String agencia, String conta, double saldo) {
         this.agencia = agencia;
         this.conta = conta;
+        this.saldo = saldo;
     }
 
     public String getAgencia() {
@@ -25,6 +27,32 @@ abstract public class Conta {
 
     public void setConta(String conta) {
         this.conta = conta;
+    }
+
+    public double getSaldo() {
+        return this.saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    @Override
+    public void exibirDados() {
+        System.out.println("Número da agência: " + this.agencia);
+        System.out.println("Número da conta: " + this.conta);
+        System.out.println("Saldo: R$ " + this.saldo);
+        throw new UnsupportedOperationException("Unimplemented method 'exibirDados'");
+    }
+
+    @Override
+    public double fazerDeposito(double valor) {
+        return this.saldo += valor;
+    }
+
+    @Override
+    public double fazerSaque(double valor) {
+        return this.saldo -= valor;
     }
 
 
