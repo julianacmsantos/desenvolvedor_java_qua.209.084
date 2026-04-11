@@ -41,8 +41,7 @@ public abstract class Conta implements IConta {
     public void exibirDados() {
         System.out.println("Número da agência: " + this.agencia);
         System.out.println("Número da conta: " + this.conta);
-        System.out.println("Saldo: R$ " + this.saldo);
-        throw new UnsupportedOperationException("Unimplemented method 'exibirDados'");
+        System.out.println("Saldo: R$ " + this.saldo);        
     }
 
     @Override

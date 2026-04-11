@@ -20,37 +20,40 @@ public class App {
 
         Scanner sc = new Scanner(System.in);
 
+        PessoaFisica pessoaFisica = new PessoaFisica(null, null, null);
+        ContaPessoaFisica contaPessoaFisica = new ContaPessoaFisica(pessoaFisica, "1234-5", "10101-1", 0);
+
+        PessoaJuridica pessoaJuridica = new PessoaJuridica(null, null, null, null);
+        ContaPessoaJuridica contaPessoaJuridica = new ContaPessoaJuridica(pessoaJuridica, "1265-4", "25470-6", 0);
+
+                
         System.out.println("Bem-vindo ao Banco X");
         System.out.println("Escolha o tipo de cadastro:");
         System.out.println("1 - Pessoa Física");
         System.out.println("2 - Pessoa Jurídica");
+        
+        String pessoaTipo = sc.nextLine();
 
-        String opcao1 = sc.nextLine();
-        String opcao2;
+        String opcao;
+        double valor;
 
-        switch (opcao1) {
+        switch (pessoaTipo) {
             case "1":
-                PessoaFisica pessoaFisica = new PessoaFisica(null, null, null);
-                System.out.println("Informe o nome:");
+                
+                System.out.println("Informe o nome do titular:");
                 pessoaFisica.setNome(sc.nextLine());
-                System.out.println("Informe o CPF:");
+                System.out.println("Informe o CPF do titular:");
                 pessoaFisica.setCpf(sc.nextLine());
-                System.out.println("Informe o e-mail:");
+                System.out.println("Informe o e-mail do titular:");
                 pessoaFisica.setEmail(sc.nextLine());
                 
-                ContaPessoaFisica contaPessoaFisica = new ContaPessoaFisica(null, null, null, 0);
-                System.out.println("\nInforme o número da sua conta:");
-                contaPessoaFisica.setConta(sc.nextLine());
-                System.out.println("Informe a agência da sua conta:");
-                contaPessoaFisica.setAgencia(sc.nextLine());
-                System.out.println("Informe o saldo inicial da sua conta:");
-                contaPessoaFisica.setSaldo(sc.nextDouble());
+                
 
-                System.out.println("\nAgência do cliente: " + contaPessoaFisica.getAgencia());
-                System.out.println("Conta do cliente: " + contaPessoaFisica.getConta());
+                contaPessoaFisica.setPessoaFisica(pessoaFisica);
+
                 break;
             case "2":
-                PessoaJuridica pessoaJuridica = new PessoaJuridica(null, null, null, null);
+                
                 System.out.println("Informe o Nome Fantasia da empresa:");
                 pessoaJuridica.setNomeFantasia(sc.nextLine());
                 System.out.println("Informe a Razão Social da empresa:");
@@ -60,51 +63,91 @@ public class App {
                 System.out.println("Informe o e-mail da empresa:");
                 pessoaJuridica.setEmail(sc.nextLine());
 
-                ContaPessoaJuridica contaPessoaJuridica = new ContaPessoaJuridica(null, 0.01, null, null, 0);
-                System.out.println("\nInforme a agência da empresa:");
-                contaPessoaJuridica.setAgencia(sc.nextLine());
-                System.out.println("Informe o número da conta da empresa:");
-                contaPessoaJuridica.setConta(sc.nextLine());
-                System.out.println("Informe o saldo inicial da conta da empresa:");
-                contaPessoaJuridica.setSaldo(sc.nextDouble());
+                
 
-                System.out.println("\nAgência da empresa: " + contaPessoaJuridica.getAgencia());
-                System.out.println("Conta da empresa: " + contaPessoaJuridica.getConta());
+                contaPessoaJuridica.setPessoaJuridica(pessoaJuridica);
                 break;
             default:
                 System.out.println("Opção inválida");
                 break;
         }
 
+    if ("1".equals(pessoaTipo) || "2".equals(pessoaTipo)) {
         do {
             System.out.println("\nSelecione a opção desejada:");
             System.out.println("A - Consultar dados da conta");
             System.out.println("B - Realizar um saque");
             System.out.println("C - realizar um depósito");
             System.out.println("D - Sair do programa");
-            opcao2 = sc.nextLine();
+            opcao = sc.nextLine();
 
-            switch (opcao2) {
-                case "A":
-                    System.out.println("\nDADOS DA CONTA");
-                    if (opcao1 == "1") {
-                        //contaPessoaFisica.exibirDados();
+        switch (opcao) {
+            case "A":
+                System.out.println("\nDADOS DA CONTA");
+                if ("1".equals(pessoaTipo)) {
+                    contaPessoaFisica.exibirDados();
+                }
+                else {
+                    contaPessoaJuridica.exibirDados();
+                }
+                break;
+            case "B":
+                System.out.println("Informe o valor do saque em R$: ");
+                valor = sc.nextDouble();
+                sc.nextLine();
+
+                if ("1".equals(pessoaTipo)) {
+                    if (valor > 0 && valor <= contaPessoaFisica.getSaldo()) {
+                        System.out.println("Saque efetuado com sucesso");
+                        System.out.println("Saldo atual: R$ " + contaPessoaFisica.fazerSaque(valor));
                     }
-                    break;
-                case "B":
+                    else {
+                        System.out.println("Valor do saque inválido");
+                    }
+                }    
+                else {
+                    if (valor > 0 && valor <= contaPessoaJuridica.getSaldo()) {
+                        System.out.println("Saldo efetuado com sucesso");
+                        System.out.println("Saldo atual: R$ " + contaPessoaJuridica.fazerSaque(valor));
+                    }
+                    else {
+                        System.out.println("Valor do saque inválido");
+                    }
+                }                
+                break;
+            case "C":
+                System.out.println("Informe o valor do depósito em R$:");
+                valor = sc.nextDouble();
+                sc.nextLine();
 
-                    break;
-                case "C":
-
-                    break;
-                case "D":
-                    System.out.println("\nSaindo do programa...");
-                    break;
-                default:
-                    break;
+                if ("1".equals(pessoaTipo)) {
+                    if (valor > 0) {
+                        System.out.println("Valor depositado com sucesso");
+                        System.out.println("Saldo atual: " + contaPessoaFisica.fazerDeposito(valor));
+                    }
+                    else {
+                        System.out.println("Valor inválido");
+                    }
+                }
+                else {
+                    if (valor > 0) {
+                        System.out.println("Valor depositado com sucesso");
+                        System.out.println("Saldo atual: R$ " + contaPessoaJuridica.fazerDeposito(valor));
+                    }
+                }
+                break;
+            case "D":
+                System.out.println("\nSaindo do programa...");
+                break;
+            default:
+                System.out.println("Opção inválida");
+                break;
             }
-} while (opcao2 != "D");
-
+        } while (!"D".equals(opcao));
+        }
+        else {
+            System.out.println("Não foi possível realizar nenhuma operação");
+        }
         sc.close();
     }
 }
