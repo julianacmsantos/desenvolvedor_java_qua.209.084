@@ -1,0 +1,32 @@
+/* centralizar div */
+.container, objeto {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    height: 100vh;
+    min-width: 100%;
+}
+
+.objeto {
+    width: 300px;
+    height: 300px;
+    border: 2px solid blue;
+    background-color: lightblue;
+    transition: 0.5s ease;
+    color: pink;
+}
+
+.objeto:hover {
+    border-radius: 50%;
+    transition: 0.5s ease;
+    background-color: blueviolet;
+    color: black;
+}
+
+span {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
