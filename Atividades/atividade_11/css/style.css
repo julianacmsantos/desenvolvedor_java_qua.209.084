@@ -1,0 +1,46 @@
+body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.5s ease;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(145deg, #71dd8a, #f8e834, #dd7171);
+    }
+
+    .card-imc {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .resultado {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .valor-imc {
+      color: #000000;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .classificacao {
+      color: #000000;
+      font-weight: bold;
+    }
+
+    .btn-imc {
+      background: #069bb9;
+      color: white;
+      border: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-imc:hover {
+      background: #87eff3;
+      transform: scale(1.02);
+    }
