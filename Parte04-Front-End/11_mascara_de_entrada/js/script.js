@@ -38,5 +38,7 @@ form.addEventListener('submit', function(e) {
     result.innerHTML = `<b>Nome:</b> ${nome}<br>
         <b>CPF:</b> ${cpf}<br>
         <b>Telefone:</b> ${telefone}<br>
-        <b>CEP:</b> ${cep}<br>`
+        <b>CEP:</b> ${cep}`;
+    
+    form.reset();
 });
