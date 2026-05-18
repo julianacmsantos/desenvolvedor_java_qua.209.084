@@ -10,4 +10,9 @@ public class FragmentsController {
             return "index";
         }
 
+@RequestMapping("/linkInPark")
+    public String link() {
+        return "link";
+    }
 }
+
