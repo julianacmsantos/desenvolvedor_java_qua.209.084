@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.crud.javalanches.models.Categoria;
+import com.crud.javalanches.models.Cliente;
 import com.crud.javalanches.models.Produto;
 import com.crud.javalanches.repository.CategoriaRepository;
 import com.crud.javalanches.repository.ProdutoRepository;
+import com.crud.javalanches.repository.ClienteRepository;
 
 @Controller
 public class JavalanchesController {
@@ -42,10 +44,28 @@ public class JavalanchesController {
     }
 
     @PostMapping("/novoProduto")
-    public String nomeProduto(Produto produto, @RequestParam("categoriaId") Long categoriaId) {
+    public String novoProduto(Produto produto, @RequestParam("categoriaId") Long categoriaId) {
         Categoria categoria = categoriaRepository.findById(categoriaId).orElse(null);
         produto.setCategoria(categoria);
         produtoRepository.save(produto);
         return "produto_sucesso";
+    }
+
+    @PostMapping("/listarProdutos")
+    public String listarProdutos(Model model) {
+        model.addAttribute("categorias", categoriaRepository.findAll());
+        return "listar_produtos";
+    }
+
+    @GetMapping("/novoCliente")
+    public String nome(Model model) {
+        model.addAttribute("nomes", categoriaRepository.findAll());
+        return "novo_cliente";
+    }
+
+    @PostMapping("/novoCliente")
+    public String novoCliente(Cliente cliente) {
+        clienteRepository.save(cliente);
+        return "cliente_sucesso";
     }
 }

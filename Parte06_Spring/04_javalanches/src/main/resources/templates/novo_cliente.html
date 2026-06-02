@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: main-layout(~{::title}, ~{::main})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javalanches - Cadastrar novo cliente</title>
+</head>
+<body>
+    <main>
+        <h1>Cadastrar novo cliente</h1>
+        <hr>
+        <form method="POST">
+            <div class="row">
+                <div class="col-12 col-lg-4 mb-3">
+                    <label for="nome" class="form-label">Nome do cliente:</label>
+                    <input type="text" class="form-control" id="nome" name="nome" required>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <label for="cpf" class="form-label">CPF:</label>
+                    <input type="text" class="form-control" id="cpf" name="cpf" required>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <label for="email" class="form-label">E-mail:</label>
+                    <input type="text" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <label for="telefone" class="form-label">Telefone:</label>
+                    <input type="text" class="form-control" id="telefone" name="telefone" required>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <label for="dataNascimento" class="form-label">Data de nascimento:</label>
+                    <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" required>
+                </div>
+                <div class="d-flex justify-content-start">
+                    <button type="submit" class="btn btn-primary">Cadastrar cliente</button>
+                </div>
+            </div>
+        </form>
+        <!-- TODO crie um formulário de cadastro de clientes -->
+         <!-- NOTE inclua os campos do endereço no mesmo formulário -->
+          <!-- NOTE ao terminar, faça as interfaces do cliente e do endereço -->
+
+    </main>
+</body>
+</html>
