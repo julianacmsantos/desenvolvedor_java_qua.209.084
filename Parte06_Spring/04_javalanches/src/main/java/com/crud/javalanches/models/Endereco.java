@@ -41,6 +41,14 @@ public class Endereco {
 
     }
 
+    public List<Cliente> getClientes() {
+        return this.clientes;
+    }
+
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
+    }
+
 
     public long getCodigoEndereco() {
         return this.codigoEndereco;

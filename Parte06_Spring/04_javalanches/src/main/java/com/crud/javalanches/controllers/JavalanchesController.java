@@ -1,5 +1,6 @@
 package com.crud.javalanches.controllers;
 
+// REVIEW: revisar os imports e remover os que não estão sendo usados
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,11 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.crud.javalanches.models.Categoria;
-import com.crud.javalanches.models.Cliente;
+import com.crud.javalanches.models.Endereco;
 import com.crud.javalanches.models.Produto;
+import com.crud.javalanches.models.Cliente;
 import com.crud.javalanches.repository.CategoriaRepository;
-import com.crud.javalanches.repository.ProdutoRepository;
 import com.crud.javalanches.repository.ClienteRepository;
+import com.crud.javalanches.repository.EnderecoRepository;
+import com.crud.javalanches.repository.ProdutoRepository;
 
 @Controller
 public class JavalanchesController {
@@ -20,6 +23,12 @@ public class JavalanchesController {
     private CategoriaRepository categoriaRepository;
     @Autowired
     private ProdutoRepository produtoRepository;
+
+    // TODO: adicionar as injeções de dependência para ClienteRepository e EnderecoRepository
+    @Autowired
+    private ClienteRepository clienteRepository;
+    @Autowired
+    private EnderecoRepository enderecoRepository;
 
     @GetMapping("/")
     public String index() {
@@ -38,7 +47,7 @@ public class JavalanchesController {
     }
 
     @GetMapping("/novoProduto")
-    public String nomeProduto(Model model) {
+    public String novoProduto(Model model) {
         model.addAttribute("categorias", categoriaRepository.findAll());
         return "novo_produto";
     }
@@ -51,20 +60,25 @@ public class JavalanchesController {
         return "produto_sucesso";
     }
 
-    @PostMapping("/listarProdutos")
+    @GetMapping("/listarProdutos")
     public String listarProdutos(Model model) {
         model.addAttribute("categorias", categoriaRepository.findAll());
         return "listar_produtos";
     }
 
+    // TODO: implementar o método para acessar formulário de cadastro de cliente
     @GetMapping("/novoCliente")
-    public String nome(Model model) {
-        model.addAttribute("nomes", categoriaRepository.findAll());
+    public String novoCliente() {
         return "novo_cliente";
     }
 
+    // TODO: implementar o método para salvar um novo cliente, incluindo o endereço
     @PostMapping("/novoCliente")
-    public String novoCliente(Cliente cliente) {
+    public String novoCliente(Cliente cliente, Endereco endereco) {
+        cliente.getEnderecos().add(endereco);
+        endereco.getClientes().add(cliente);
+
+        enderecoRepository.save(endereco);
         clienteRepository.save(cliente);
         return "cliente_sucesso";
     }
