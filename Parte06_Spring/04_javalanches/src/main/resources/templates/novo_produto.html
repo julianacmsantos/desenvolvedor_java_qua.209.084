@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: main-layout(~{::title}, ~{::main})}">
+<head>
     <title>Javalanches - Cadastrar novo produto</title>
 </head>
 <body>
@@ -20,11 +21,11 @@
                     </select>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <label for="precoProduto" class="form-label">Preço do produto:</label>
+                    <label for="precoProduto" class="form-label">Preço do Produto:</label>
                     <input type="number" placeholder="R$ 0,00" class="form-control" id="precoProduto" name="precoProduto" step="0.01" required>
                 </div>
                 <div class="col-12 mb-3">
-                    <label for="descricaoProduto" class="form-label">Descrição do produto:</label>
+                    <label for="descricaoProduto" class="form-label">Descrição do Produto:</label>
                     <textarea class="form-control" placeholder="Número máximo de caracteres: 255" id="descricaoProduto" name="descricaoProduto" rows="3" maxlength="255"></textarea>
                 </div>
                 <div class="d-flex justify-content-start">
@@ -32,6 +33,6 @@
                 </div>
             </div>
         </form>
-    </main>    
+    </main>
 </body>
 </html>
