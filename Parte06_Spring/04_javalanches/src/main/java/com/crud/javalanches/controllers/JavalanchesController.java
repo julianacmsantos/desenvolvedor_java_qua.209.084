@@ -1,9 +1,3 @@
-/**
- * @Author: Your name
- * @Date:   2026-06-12 20:03:11
- * @Last Modified by:   Your name
- * @Last Modified time: 2026-06-12 20:19:59
- */
 package com.crud.javalanches.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,13 +99,13 @@ public class JavalanchesController {
             return "redirect:/listarClientes";
         }
         model.addAttribute("cliente", cliente);
-        return "redirect:/listarClientes";
+        return "atualizar_cliente";
     }
 
     @PostMapping("/atualizarCliente")
     public String atualizarCliente(Cliente cliente) {
         clienteRepository.save(cliente);
-        return "redirect:/listarClientes";
+        return "atualizar_cliente_sucesso";
     }
 
     @GetMapping("/atualizarEndereco")
@@ -140,7 +134,7 @@ public class JavalanchesController {
         Cliente cliente = clienteRepository.findById(codigoCliente).orElse(null);
 
         if (cliente == null) {
-             return "endereco_sucesso";
+            return "redirect:/listarClientes";
         }
 
         model.addAttribute("cliente", cliente);
@@ -160,7 +154,7 @@ public class JavalanchesController {
 
         enderecoRepository.save(endereco);
         clienteRepository.save(cliente);
-        return "redirect:/listarClientes";
+        return "endereco_sucesso";
     }
 
     @GetMapping("/atualizarCategoria")
@@ -174,5 +168,37 @@ public class JavalanchesController {
     public String atualizarCategoria(Categoria categoria) {
         categoriaRepository.save(categoria);
         return "atualizar_categoria_sucesso";
+    }
+
+    @GetMapping("/atualizarProduto")
+    public String atualizarProduto(@RequestParam("codigoProduto") Long codigoProduto, Model model) {
+        Produto produto = produtoRepository.findById(codigoProduto).orElse(null);
+        model.addAttribute("produto", produto);
+        model.addAttribute("categorias", categoriaRepository.findAll());
+        return "atualizar_produto";
+    }
+
+    @PostMapping("/atualizarProduto")
+    public String atualizarProduto(Produto produto, @RequestParam("categoriaId") Long categoriaId) {
+        Categoria categoria = categoriaRepository.findById(categoriaId).orElse(null);
+        produto.setCategoria(categoria);
+        produtoRepository.save(produto);
+        return "atualizar_produto_sucesso";
+    }
+
+    @GetMapping("/deletarProduto")
+    public String deletarProduto(@RequestParam("codigoProduto") Long codigoProduto) {
+        produtoRepository.deleteById(codigoProduto);
+        return "redirect:/listarProdutos";
+    }
+
+    @GetMapping("/deletarCategoria")
+    public String deletarCategoria(@RequestParam("codigoCategoria") Long codigoCategoria) {
+        Categoria categoria = categoriaRepository.findById(codigoCategoria).orElse(null);
+        if (categoria != null) {
+            produtoRepository.deleteAll(categoria.getProdutos());
+            categoriaRepository.deleteById(codigoCategoria);
+        }
+        return "redirect:/listarProdutos";
     }
 }
