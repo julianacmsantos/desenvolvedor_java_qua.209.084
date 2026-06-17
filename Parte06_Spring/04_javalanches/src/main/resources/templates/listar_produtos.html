@@ -27,7 +27,7 @@
                                     th:text="${categoria.nomeCategoria.toUpperCase()}"></a>
                             </strong>
                             <a th:href="@{/deletarCategoria(codigoCategoria=${categoria.codigoCategoria})}"
-                                class="text-white text-decoration-none"
+                                class="text-danger text-decoration-none"
                                 title="Excluir categoria e todos os seus produtos"
                                 onclick="return confirm('Tem certeza que deseja excluir esta categoria e todos os seus produtos?');">X</a>
                         </div>

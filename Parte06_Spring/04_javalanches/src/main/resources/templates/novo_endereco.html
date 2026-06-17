@@ -59,7 +59,6 @@
         <script>
             const cep = document.querySelector('#cep');
 
-            // consumo da api
             const limparFormularioCep = () => {
                 document.querySelector('#uf').value = ('');
                 document.querySelector('#cidade').value = ('');
@@ -69,20 +68,19 @@
             }
 
             const meuCallback = (conteudo) => {
-                if (!("erro" in conteudo)) {
-                    document.querySelector('#uf').value = (conteudo.uf);
-                    document.querySelector('#cidade').value = (conteudo.localidade);
-                    document.querySelector('#bairro').value = (conteudo.bairro);
-                    document.querySelector('#logradouro').value = (conteudo.logradouro);
-                    document.querySelector('#complemento').value = (conteudo.complemento);
-                }
-                else {
+                if (!('erro' in conteudo)) {
+                    document.querySelector('#uf').value = conteudo.uf;
+                    document.querySelector('#cidade').value = conteudo.localidade;
+                    document.querySelector('#bairro').value = conteudo.bairro;
+                    document.querySelector('#logradouro').value = conteudo.logradouro;
+                    document.querySelector('#complemento').value = conteudo.complemento;
+                } else {
                     limparFormularioCep();
-                    alert("CEP não encontrado.");
+                    alert('CEP não encontrado.');
                 }
             }
 
-            cep.addEventListener('input', function() {
+            cep.addEventListener('input', function () {
                 this.value = this.value
                     .replace(/\D/g, '')
                     .replace(/(\d{5})(\d)/, '$1-$2')
@@ -92,28 +90,24 @@
             cep.addEventListener('blur', function () {
                 let cep = document.querySelector('#cep').value.replace(/\D/g, '');
 
-                if (cep != '') {
+                if (cep !== '') {
                     let validaCep = /^[0-9]{8}$/;
 
                     if (validaCep.test(cep)) {
-                        document.querySelector('#uf').value = "buscando...";
-                        document.querySelector('#cidade').value = "buscando...";
-                        document.querySelector('#bairro').value = "buscando...";
-                        document.querySelector('#logradouro').value = "buscando...";
-                        document.querySelector('#complemento').value = "buscando...";
+                        document.querySelector('#uf').value = 'buscando...';
+                        document.querySelector('#cidade').value = 'buscando...';
+                        document.querySelector('#bairro').value = 'buscando...';
+                        document.querySelector('#logradouro').value = 'buscando...';
+                        document.querySelector('#complemento').value = 'buscando...';
 
                         let script = document.createElement('script');
-
                         script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meuCallback';
-
                         document.body.appendChild(script);
-                    }
-                    else {
+                    } else {
                         limparFormularioCep();
-                        alert("Formato do CEP inválido.");
+                        alert('Formato do CEP inválido.');
                     }
-                }
-                else {
+                } else {
                     limparFormularioCep();
                 }
             });
